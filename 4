@@ -1,0 +1,61 @@
+Flask is a web framework that allows developers to build lightweight web applications quickly and easily with Flask Libraries. 
+Google Cloud SDK, also known as gcloud, is a set of command-line tools provided by Google for managing and interacting with resources and services on the Google Cloud Platform (GCP). It enables developers and administrators to access and manage Google Cloud services from their local machines.
+
+Step  : sign up for a Google Cloud Platform account
+Step : Set Up Your Environment
+1.	Install the Google Cloud SDK:
+o	Download the installer from Google Cloud SDK.
+o	Follow the installation instructions for Windows.
+2.	Set Up Python:
+o	Ensure Python is installed on your system. 
+o	
+3.	Install Flask: Open Command Prompt and run:
+pip install Flask
+Step : Create the Application
+1.	Create a new directory for your project:
+mkdir even-number-generator
+cd even-number-generator
+2.	Create the required files:
+o	app.yaml: Configuration for your App Engine application.
+o	main.py: The main application logic.
+Step : Write the Application Code
+app.yaml
+Create a file named app.yaml and add the following content:
+runtime: python39  
+
+handlers:
+- url: /.*
+  script: auto
+main.py
+Create a file named main.py and add the following code:
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/generate', methods=['GET'])
+def generate_even_numbers():
+    n = request.args.get('n', default=10, type=int)  # Default to 10 if not specified
+    even_numbers = [i for i in range(0, n * 2, 2)]  # Generate n even numbers
+    return jsonify(even_numbers)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
+Step : Test Locally
+You can run the application locally to test it:
+1.	Open Command Prompt in the even-number-generator directory.
+2.	Run the following command:
+python main.py
+3.	Open your browser and visit http://127.0.0.1:8080/generate?n=5 to see the generated even numbers.
+Step : Deploy to Google App Engine
+1.	Initialize your Google Cloud project:
+gcloud init
+Follow the prompts to select your project.
+2.	Deploy the application:
+Run the following command in your project directory:
+gcloud app deploy
+3.	Visit your deployed app:
+After deployment, access your app at https://<your-project-id>.appspot.com/generate?n=5.
+Step : Clean Up
+To avoid incurring charges, delete the project if no longer needed:
+gcloud projects delete <your-project-id>
+
