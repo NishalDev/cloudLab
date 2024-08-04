@@ -1,0 +1,60 @@
+
+Cloud computing is the delivery of online services (such as servers, databases, software) to users. With the help of cloud computing, storing data on local machines is not required. It helps you access data from a remote server. Moreover, it is also used to store and access data from anywhere across the world. Amazon Web Services (AWS)
+The Amazon Web Services (AWS) platform provides more than 200 fully featured services from data centers located all over the world, and is the world's most comprehensive cloud platform.
+
+Amazon web service is an online platform that provides scalable and cost-effective cloud computing solutions.
+
+AWS is a broadly adopted cloud platform that offers several on-demand operations like compute power, database storage, content delivery, etc., to help corporates scale and grow.
+1. Creating a Virtual Machine in AWS
+Step 1: Sign in to AWS Management Console
+•	Navigate to the AWS Management Console: AWS Console.
+•	Log in with your AWS account credentials.
+Step 2: Access EC2 Dashboard
+•	In the console, search for "EC2" and select "EC2" to open the EC2 Dashboard.
+Step 3: Launch an Instance
+1.	Click on "Launch Instance".
+2.	Choose an Amazon Machine Image (AMI):
+o	Select an appropriate AMI (e.g., Windows Server, Amazon Linux, Ubuntu).
+o	Click "Select".
+3.	Choose an Instance Type:
+o	Select an instance type based on your requirements (e.g., t2.micro for free tier).
+o	Click "Next: Configure Instance Details".
+4.	Configure Instance Details:
+o	Choose the number of instances, network settings, and subnet configurations.
+o	Click "Next: Add Storage".
+5.	Add Storage:
+o	Modify the root volume size if necessary.
+o	Click "Next: Add Tags".
+6.	Add Tags:
+o	Add tags for easy identification (e.g., Key: Name, Value: MyInstance).
+o	Click "Next: Configure Security Group".
+7.	Configure Security Group:
+o	Create a new security group or select an existing one.
+o	Add rules to allow SSH (port 22 for Linux) and RDP (port 3389 for Windows).
+o	Click "Review and Launch".
+8.	Review and Launch:
+o	Review your settings and click "Launch".
+o	Select an existing key pair or create a new one, and download the private key (.pem) file.
+o	Click "Launch Instances".
+2. Accessing Windows Server using RDP
+Step 1: Obtain Public IP Address
+•	After launching the instance, select it in the EC2 Dashboard.
+•	Note the Public IP or Public DNS.
+Step 2: Use Remote Desktop Connection (RDP)
+1.	Open Remote Desktop Connection (RDP) on your computer.
+2.	Enter the Public IP or DNS of the instance.
+3.	Click on "Connect".
+4.	When prompted for credentials, use the Administrator username and the password you obtained by decrypting the key pair.
+3. Accessing Linux Instances using PuTTY
+Step 1: Download and install Putty software.
+Step2: Convert .pem to .ppk 
+1.	Open PuTTYgen.
+2.	Click on "Load" and select your .pem file.
+3.	Click on "Save private key" to save as a .ppk file.
+Step 2: Connect using PuTTY
+1.	Open PuTTY.
+2.	In the "Host Name" field, enter the Public IP or DNS.
+3.	Under "Connection" > "SSH" > "Auth", browse and select the .ppk file.
+4.	Click "Open" to connect.
+5.	Log in using the default username (e.g., ec2-user for Amazon Linux, ubuntu for Ubuntu).
+
